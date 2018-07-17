@@ -24,26 +24,8 @@ export default {
       }
     })
 
-    var menu = new Menu("#mainMenu", {
-      itemclick: function (item) {
-        if (!item.children) {
-          activeTab(item);
-        }
-      }
-    });
+    var menu = new Menu("#mainMenu", {});
   }
-}
-function activeTab(item) {
-  mini.parse()
-  var tabs = mini.get("mainTabs");
-  console.log('...'+mini)
-  console.log('...'+tabs)
-  var tab = tabs.getTab(item.id);
-  if (!tab) {
-    tab = { name: item.id, title: item.text, url: item.url, iconCls: item.iconCls, showCloseButton: true };
-    tab = tabs.addTab(tab);
-  }
-  tabs.activeTab(tab);
 }
 </script>
 

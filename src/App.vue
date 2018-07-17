@@ -8,12 +8,8 @@
             <div class="content-wrapper">
               <router-view></router-view>
             </div>
-            <!-- content wrapper ends -->
-            <!--<app-footer/>-->
           </div>
-          <!-- main panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
       </div>
   </div>
 </template>
@@ -21,7 +17,6 @@
 <script>
 import AppHeader from '../src/components/partials/AppHeader'
 import AppSidebar from '../src/components/partials/AppSidebar'
-// import AppFooter from '../src/components/partials/AppFooter'
 export default {
   name: 'App',
   components: {

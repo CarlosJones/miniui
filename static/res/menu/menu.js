@@ -71,7 +71,7 @@ Menu.prototype = {
     _renderItem: function (item) {
 
         var me = this,
-            hasChildren = item.children && item.children.length > 0;
+        hasChildren = item.children && item.children.length > 0;
 
         var s = '<li class="' + (hasChildren ? 'has-children' : '') + '">';        //class="menu-item" open, expanded?
 
@@ -80,20 +80,21 @@ Menu.prototype = {
         //            s += 'href="' + item.href + '" target="' + (item.hrefTarget || '') + '"';
         //        }
         s += '>';
-
         s += '<i class="menu-icon fa ' + item.iconCls + '"></i>';
+        if(!hasChildren){
+          s += '<router-link class="nav-link" to="'+item.url+'"></router-link>';
+        }
         s += '<span class="menu-text">' + item.text + '</span>';
-
+        // if(!hasChildren){
+        //   s+='</router-link>';
+        // }
         if (hasChildren) {
             s += '<span class="menu-arrow fa"></span>';
         }
-
         s += '</a>';
-
         if (hasChildren) {
             s += me._renderItems(item.children, item);
         }
-
         s += '</li>';
         return s;
     },

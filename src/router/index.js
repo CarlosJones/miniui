@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Dashboard from '@/views/dashboard'
+import Dashboard from '../views/dashboard'
+import CRUD from '../views/crud'
 
 Vue.use(Router)
 
@@ -9,7 +10,12 @@ export default new Router({
     {
       path: '/',
       name: 'dashboard',
-      // component: Dashboard
+      component: Dashboard
+    },
+    {
+      path: '/views/crud.vue',
+      name: 'crud',
+      component: CRUD
     }
   ]
 })
