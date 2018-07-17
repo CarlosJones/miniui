@@ -75,19 +75,22 @@ Menu.prototype = {
 
         var s = '<li class="' + (hasChildren ? 'has-children' : '') + '">';        //class="menu-item" open, expanded?
 
+      if(!hasChildren){
+        s += '<router-link class="nav-link" to="'+item.url+'">';
+      }
         s += '<a class="menu-title" data-id="' + item.id + '" ';
         //        if (item.href) {
         //            s += 'href="' + item.href + '" target="' + (item.hrefTarget || '') + '"';
         //        }
         s += '>';
         s += '<i class="menu-icon fa ' + item.iconCls + '"></i>';
-        if(!hasChildren){
-          s += '<router-link class="nav-link" to="'+item.url+'"></router-link>';
-        }
         s += '<span class="menu-text">' + item.text + '</span>';
         // if(!hasChildren){
         //   s+='</router-link>';
         // }
+      if(!hasChildren){
+        s += '</router-link>';
+      }
         if (hasChildren) {
             s += '<span class="menu-arrow fa"></span>';
         }
@@ -106,22 +109,22 @@ Menu.prototype = {
     },
 
     getItemById: function (id) {
-        var me = this,
-            idHash = me._idHash;
+    var me = this,
+      idHash = me._idHash;
 
-        if (!idHash) {
-            idHash = me._idHash = {};
-            function each(items) {
-                for (var i = 0, l = items.length; i < l; i++) {
-                    var item = items[i];
-                    if (item.children) each(item.children);
-                    idHash[item.id] = item;
-                }
-            }
-            each(me.options.data);
+    if (!idHash) {
+      idHash = me._idHash = {};
+      function each(items) {
+        for (var i = 0, l = items.length; i < l; i++) {
+          var item = items[i];
+          if (item.children) each(item.children);
+          idHash[item.id] = item;
         }
-
-        return me._idHash[id];
+      }
+      each(me.options.data);
     }
+
+    return me._idHash[id];
+  }
 
 };

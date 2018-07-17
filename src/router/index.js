@@ -13,7 +13,7 @@ export default new Router({
       component: Dashboard
     },
     {
-      path: '/views/crud.vue',
+      path: '/crud',
       name: 'crud',
       component: CRUD
     }

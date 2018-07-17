@@ -1,11 +1,11 @@
 ﻿.menu {
     position: relative;
-    cursor: pointer;    
+    cursor: pointer;
     background: #42485b;
     color: #fff;
 }
 
-ul, li 
+ul, li
 {
     position:relative;
     list-style: none;
@@ -32,16 +32,17 @@ ul, li
 }
 
 .menu-arrow:after {
-    content: "\f104";    
+    content: "\f104";
 }
 
 .open > a > .menu-arrow:after {
-    content: "\f106";    
+    content: "\f106";
 }
 
 .menu-text
 {
-    padding-left:6px;
+  color:white;
+  padding-left:6px;
 }
 
 .menu ul
@@ -56,7 +57,7 @@ ul, li
 
 .menu ul
 {
-    background-color: #333744;    
+    background-color: #333744;
 }
 
 .menu-title
