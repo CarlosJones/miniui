@@ -19,7 +19,6 @@
 <script lang="js">
 import '../../../static/scripts/jquery.min.js'
 import '../../../static/res/menutip.js'
-import '../../../static/scripts/boot.js'
 import '../../../static/scripts/miniui/miniui.js'
 
 
@@ -32,12 +31,15 @@ export default {
       var li = el.parent();
       li.toggleClass('open');
     });
+    $("#toggle, .sidebar-toggle").click(function () {
+      $('body').toggleClass('compact');
+      mini.layout();
+    });
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import '../../../static/res/menu/menu.css';
 .app-sidebar {
 
 }
